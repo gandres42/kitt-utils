@@ -14,10 +14,12 @@ from pygame.locals import (
 
 BLOCK_SIZE = 5
 
-GRID_M_WIDTH = 5
-GRID_M_HEIGHT = 3
+GRID_M_WIDTH = 4
+GRID_M_HEIGHT = 2
 
-GRID_Y_OFFSET = 0.08
+# GRID_Y_OFFSET = 0.08
+GRID_Y_OFFSET = 0
+GRID_MEASURE = 1
 
 BLOCKS_PER_METER = 50
 GRID_WIDTH = (GRID_M_WIDTH * BLOCKS_PER_METER) + 1
@@ -54,7 +56,7 @@ def draw_dwm(x, y):
 def draw_grid():
     for x in range(GRID_WIDTH):
         for y in range(GRID_HEIGHT):
-            if x % int(BLOCKS_PER_METER * .61) == 0 or (y - int(BLOCKS_PER_METER * GRID_Y_OFFSET)) % int(BLOCKS_PER_METER * .61) == 0:
+            if x % int(BLOCKS_PER_METER * GRID_MEASURE) == 0 or (y - int(BLOCKS_PER_METER * GRID_Y_OFFSET)) % int(BLOCKS_PER_METER * GRID_MEASURE) == 0:
                 draw_pixel(x, y, GREY)
 
 def main():
@@ -79,6 +81,6 @@ def main():
         print(round(nt.getNumber('fuse_y', -1), 3))
         print(nt.getNumber('dwm_x', -1))
         print(nt.getNumber('dwm_y', -1))
-        time.sleep(1/100)
+        time.sleep(1/60)
 
 main()

@@ -14,7 +14,7 @@ from pygame.locals import (
 
 BLOCK_SIZE = 5
 
-GRID_M_WIDTH = 4
+GRID_M_WIDTH = 2
 GRID_M_HEIGHT = 2
 
 # GRID_Y_OFFSET = 0.08

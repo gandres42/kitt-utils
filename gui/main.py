@@ -4,7 +4,7 @@ from networktables import NetworkTables
 import os
 import time
 
-NetworkTables.initialize(server='100.71.254.107')
+NetworkTables.initialize(server='192.168.1.109')
 nt = NetworkTables.getTable("localization")
 
 from pygame.locals import (
@@ -14,7 +14,7 @@ from pygame.locals import (
 
 BLOCK_SIZE = 5
 
-GRID_M_WIDTH = 2
+GRID_M_WIDTH = 3
 GRID_M_HEIGHT = 2
 
 # GRID_Y_OFFSET = 0.08
@@ -77,10 +77,9 @@ def main():
         draw_dwm(nt.getNumber('fuse_x', -1), -1 * nt.getNumber('fuse_y', -1))
         pygame.display.update()
         os.system('cls' if os.name == 'nt' else 'clear')
-        print(round(nt.getNumber('fuse_x', -1), 3))
-        print(round(nt.getNumber('fuse_y', -1), 3))
-        print(nt.getNumber('dwm_x', -1))
-        print(nt.getNumber('dwm_y', -1))
+        print(nt.getNumber('gyro_x', -1))
+        print(nt.getNumber('gyro_y', -1))
+        print(nt.getNumber('gyro_z', -1))
         time.sleep(1/60)
 
 main()
